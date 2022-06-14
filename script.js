@@ -18,13 +18,16 @@ alert("E-mail valido");
 else{
 document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
 alert("E-mail invalido");
+return
 }
 }
 function validarCPF(field){
   var soma;
   var resto;
   var resultado;
+  var cpf
   cpf = field.value;
+  cpf = cpf.replace(/[^\d]+/g, "") //remove todos os caracteres que não são números
   soma = 0;
   if (cpf == "00000000000") return false;
   
@@ -44,6 +47,7 @@ function validarCPF(field){
   
   if (resultado == false){
     alert("CPF inválido.")
+    return
   } else if (resultado == true){
     alert("CPF válido.")
   }
