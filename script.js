@@ -1,4 +1,8 @@
-alert("Este projeto não armazena nenhum dado inserido!")
+alert("Este site não guarda nenhuma informação.")
+const msgEmail = document.querySelector("#msgemail")
+const msgCPF = document.querySelector("#msgcpf")
+msgCPF.style.opacity = 0
+msgEmail.style.opacity = 0
 function validarEmail(field) {
 usuario = field.value.substring(0, field.value.indexOf("@"));
 dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
@@ -12,19 +16,22 @@ if ((usuario.length >=1) &&
     (dominio.search(".")!=-1) &&
     (dominio.indexOf(".") >=1)&&
     (dominio.lastIndexOf(".") < dominio.length - 1)) {
-document.getElementById("msgemail").innerHTML="E-mail válido";
-alert("E-mail valido");
+msgEmail.innerHTML="<div><font color='green'><b>E-MAIL VÁLIDO</b></font></div>";
+msgEmail.style.opacity = 1
 }
 else{
-document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
-alert("E-mail invalido");
+msgEmail.innerHTML="<div><font color='red'><b>E-MAIL INVÁLIDO</b></font><div>";
+msgEmail.style.opacity = 1
+return
 }
 }
 function validarCPF(field){
   var soma;
   var resto;
   var resultado;
+  var cpf
   cpf = field.value;
+  cpf = cpf.replace(/[^\d]+/g, "") //remove todos os caracteres que não são números
   soma = 0;
   if (cpf == "00000000000") return false;
   
@@ -43,8 +50,11 @@ function validarCPF(field){
                                                } else resultado = true;
   
   if (resultado == false){
-    alert("CPF inválido.")
+    msgCPF.innerHTML="<div><font color='red'><b>CPF INVÁLIDO</b></font></div>";
+    msgCPF.style.opacity = 1
+    return
   } else if (resultado == true){
-    alert("CPF válido.")
+    msgCPF.innerHTML="<div><font color='green'><b>CPF VÁLIDO<b></font></div>";
+    msgCPF.style.opacity = 1
   }
 }
