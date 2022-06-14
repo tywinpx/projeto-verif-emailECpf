@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>verificar email e cpf</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form name="f1">
+<h3>Formulário de Inscrição:</h3>
+<table>
+<tr>
+<td>
+E-mail:
+<input type="text" name="email" onblur="validarEmail(f1.email)"  maxlength="60" size='65'>
+</td>
+<td>
+<div id="msgemail"></div>
+</td>
+  <td>
+CPF:
+<input type="text" name="cpf" onblur="validarCPF(f1.cpf)"  maxlength="60" size='65'>
+</td>
+  <td>
+<div id="msgcpf"></div>
+</td>
+</tr>
+</table>
+</form>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
